@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="css/estilo1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Listado de Estados</h1>
+        <header th:replace="layout/plantilla :: header"/>
         <br>
         <a th:href="@{/nuevoEstado}">Nuevo Estado</a>
         <br>
@@ -44,6 +44,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div th:if="${estados == null or estados.empty}">
             La lista de Estados esta vacia
         </div>
-
     </body>
+    <footer th:replace="layout/plantilla :: footer"/>
 </html>
