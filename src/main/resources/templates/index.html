@@ -12,6 +12,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <h1>Listado de Estados</h1>
+        <br>
+        <a th:href="@{/nuevoEstado}">Nuevo Estado</a>
+        <br>
         <div th:if='${estados != null and !estados.empty}'>
             <table border="1">
                 <thead>
@@ -21,15 +24,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <th>Costas</th>
                         <th>Capital</th>
                         <th>Moneda</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="estado: ${estados}">
-                        <td th:text="${estado.nombre}"></td>
-                        <td th:text="${estado.poblacion}"></td>
-                        <td th:text="${estado.costas}"></td>
-                        <td th:text="${estado.capital}"></td>
-                        <td th:text="${estado.moneda}"></td>
+                    <tr th:each="item: ${estados}">
+                        <td th:text="${item.nombre}"></td>
+                        <td th:text="${item.poblacion}"></td>
+                        <td th:text="${item.costas}"></td>
+                        <td th:text="${item.capital}"></td>
+                        <td th:text="${item.moneda}"></td>
+                        <td><a th:href="@{/modificarEstado/} + ${item.idEstado}">Modifcar</a></td>
+                        <td><a th:href="@{/eliminarEstado/} + ${item.idEstado}">Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>
