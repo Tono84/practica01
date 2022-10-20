@@ -4,6 +4,9 @@
  */
 package com.practica01.domain;
 
+
+//import java.io.Serializable;
+import javax.persistence.*;
 import lombok.Data;
 
 /**
@@ -11,13 +14,22 @@ import lombok.Data;
  * @author joses
  */
 @Data
-public class Estado {
+@Entity
+@Table(name="estado")
+public class Estado{
+    
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEstado;
     private String nombre;
     private int poblacion;
     private String costas;
     private String capital;
     private String moneda;
 
+    
     public Estado() {
     }
    

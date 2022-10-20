@@ -11,32 +11,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="css/estilo1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Un Estado</h1>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Poblacion</th>
-                    <th>Costas</th>
-                    <th>Capital</th>
-                    <th>Moneda</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="estado: ${estados}">
-                    <td> th</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Listado de Estados</h1>
+        <div th:if='${estados != null and !estados.empty}'>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Poblacion</th>
+                        <th>Costas</th>
+                        <th>Capital</th>
+                        <th>Moneda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="estado: ${estados}">
+                        <td th:text="${estado.nombre}"></td>
+                        <td th:text="${estado.poblacion}"></td>
+                        <td th:text="${estado.costas}"></td>
+                        <td th:text="${estado.capital}"></td>
+                        <td th:text="${estado.moneda}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${estados == null or estados.empty}">
+            La lista de Estados esta vacia
+        </div>
 
-        <p>Nombre: <span th:text="${estado.nombre}"</p>
-        <p>Poblacion: <span th:text="${estado.poblacion}"</p>
-        <p>Costas: <span th:text="${estado.costas}"</p>
-        <p>Capital: <span th:text="${estado.capital}"</p>
-        <p>Moneda: <span th:text="${estado.moneda}"</p>
     </body>
 </html>
